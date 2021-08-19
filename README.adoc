@@ -1,0 +1,50 @@
+== What is NetworkMonitor?
+
+_NetworkMonitor_ is a program that provides several network monitoring services for my home network:
+
+* Periodically checks to see that my main server (aka "Beast") has connectivity to various elements of my internal network.
+* Periodically checks to see that my primary and secondary ISPs are working.
+* Periodically checks to see that its possible to connect from my network to outside IPs that are important to the proper functioning of my systems.
+* Periodically checks the IPv4 address of my network that the outside world sees.
+
+I wrote _NetworkMonitor_ to replace a set of bash scripts that were becoming unwieldy and brittle.
+
+== Why does the world need NetworkMonitor?
+
+Well, probably the world doesn't actually _need_ _NetworkMonitor_ -- it's mainly here for the author's personal use and enjoyment, but with some faintish hope that someone else with the same challenges the author faced will also find it useful.
+
+== Dependencies
+
+_NetworkMonitor_ has several dependencies:
+
+* _MOP_ is a message-oriented programming module the author also wrote, freely available from https://github.com/SlightlyLoony/MOP[here].
+* _Util_ is a utilities module the author also wrote, freely available from https://github.com/SlightlyLoony/Util[here].
+* _JSON_ is the bog-standard Java JSON module, freely available from https://github.com/stleary/JSON-java[here].
+
+== Why is NetworkMonitor's code so awful?
+
+The author is a retired software and hardware engineer who did this just for fun, and who (so far, anyway) has no code reviewers to upbraid him. Please feel free to fill in this gap! You may contact the author at link:mailto:[tom@dilatush.com].
+
+== Software Components
+
+
+
+== How is NetworkMonitor licensed?
+
+MOP is licensed with the quite permissive MIT license:
+
+
+....
+Created: August 16, 2021
+Author: Tom Dilatush link:mailto:tom@dilatush.com
+Github: https://github.com/SlightlyLoony/NetworkMonitor
+License: MIT
+
+Copyright 2021 by Tom Dilatush (aka "SlightlyLoony")
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so.
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE A AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+....
