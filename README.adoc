@@ -2,12 +2,14 @@
 
 _NetworkMonitor_ is a program that provides several network monitoring services for my home network:
 
+* Decides whether our edge router should be connected to our primary ISP (Starlink) or our secondary ISP (Verizon), based on whether the primary ISP has a connection.
 * Periodically checks to see that my main server (aka "Beast") has connectivity to various elements of my internal network.
 * Periodically checks to see that my primary and secondary ISPs are working.
 * Periodically checks to see that its possible to connect from my network to outside IPs that are important to the proper functioning of my systems.
 * Periodically checks the IPv4 address of my network that the outside world sees.
+* Periodically tests our Internet connection for round trip time, download speed, and upload speed.
 
-I wrote _NetworkMonitor_ to replace a set of bash scripts that were becoming unwieldy and brittle.
+I wrote _NetworkMonitor_ to replace a set of bash and router scripts that were becoming unwieldy and brittle.
 
 == Why does the world need NetworkMonitor?
 
@@ -25,9 +27,22 @@ _NetworkMonitor_ has several dependencies:
 
 The author is a retired software and hardware engineer who did this just for fun, and who (so far, anyway) has no code reviewers to upbraid him. Please feel free to fill in this gap! You may contact the author at link:mailto:[tom@dilatush.com].
 
-== Software Components
+== Overview
+
+The only "input" to _NetworkMonitor_ is its <<Configuration File>>, which controls the kinds of periodic checks that _NetworkMonitor_ will perform.
+
+Each of those periodic checks will be either successful or not, and may return some specific information.  For example, a ping to a specific IP may succeed or fail, and a query for the current externally visible public IP may success or fail - and with success there is an IP address as a result.
+
+Network monitoring is made trickier by the fact that a single failure doesn't necessarily mean an overall failure that must be recorded or mitigated.  For instance, if a ping to a DNS server fails, there are lots of reasons why that might happen - the ping or its response might have been dropped along the way because of some transient problem, or there might have been an equipment failure that would be worked around in short order, or it might actually be that there's a serious network failure.  The need to "filter" the success/failure results are the main reason I moved to Java from batch files - that sort of thing is much easier in Java.
+
+The filtered results are used to do several things:
+
+* Publish MOP messages about the network's status that any MOP client may subscribe to.
+* Generate events for significant changes in the network's status.
+* Populate database tables to record the
 
 
+== Configuration File
 
 == How is NetworkMonitor licensed?
 
